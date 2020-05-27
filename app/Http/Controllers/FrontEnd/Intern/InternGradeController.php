@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Frontend\Intern;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Internship;
+use Session;
 
 class InternGradeController extends Controller
 {
@@ -57,7 +60,17 @@ class InternGradeController extends Controller
      */
     public function edit($id)
     {
-        //
+        //dump($id);
+        $editnilai = DB::table('internships')
+        ->select('internships.*','students.nim','students.name')
+        ->join ('students', 'internships.student_id','=','students.id')
+        ->join ('Lecturers', 'internships.advisor_id','=','lecturers.id')
+        ->join ('internship_proposals', 'internships.internship_proposal_id','=','internship_proposals.id')
+        ->join ('internship_agencies', 'internship_proposals.agency_id','=','internship_agencies.id')
+        ->where ('internships.id', $id)
+        ->get();
+        //dump($editnilai);
+        return view('klp05.editnilai', compact('editnilai')); 
     }
 
     /**

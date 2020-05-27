@@ -28,6 +28,7 @@
                     <th>Nama Mahasiswa</th>
                     <th>Judul KP</th>
                     <th>Waktu Seminar</th>
+                    <th>Grade</th>
                     <th>Aksi</th>
                 </tr>
                 </thead>
@@ -45,6 +46,15 @@
                         </td>
                         <td>{{ $internship->title }}</td>
                         <td>{{ $internship->seminar_date }} <br> {{ $internship->seminar_time }}</td>
+
+                        <td>
+                            @if(isset($internship->grade))
+                                {{ $internship->grade }}
+                            @else
+                                <strong style="color:red">Belum dinilai</strong>
+                            @endif
+                        </td>
+                        </td>
                         <td>
                             {!! cui()->btn_view(route('frontend.interns.show', [$internship->nim])) !!} 
                         
