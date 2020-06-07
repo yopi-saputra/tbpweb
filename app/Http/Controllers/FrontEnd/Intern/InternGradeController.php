@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend\Intern;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Student;
+use PDF;
 
 class InternGradeController extends Controller
 {
@@ -15,13 +16,16 @@ class InternGradeController extends Controller
      */
     public function index()
     {
-        return view('viewPrint');
+        $students = Student::all();
+        return view('klp05.Print',['Print'=>$students]);
     }
 
     public function print()
     {
         $students=Student::all();
-        return view('print',compact('students'));
+
+        $pdf = PDF::loadview('klp05.student_pdf',['Print'=>$students]);
+        return $pdf->download('laporan-student-pdf');
     }
 
     /**

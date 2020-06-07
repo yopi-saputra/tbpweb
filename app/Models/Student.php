@@ -26,6 +26,7 @@ class Student extends Model
     ];
 
     protected $table = 'students';
+    protected $fillable = ['nik','nim','name','year','gender','birthday','birthplace','phone','address','department_id','photo','marital_status','religion','status'];
     protected $guarded = [];
     protected $dates = ['birthday'];
     public $incrementing = false;
