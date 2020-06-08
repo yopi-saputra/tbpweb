@@ -1,44 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title>Laporan PDF</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Print KP</title>
 </head>
+
 <body>
- 
-	<div class="container">
-		<center>
-			<h4>Laporan PDF Mahasiswa</h4>
-		</center>
-		<br/>
-		<a href="/pegawai/cetak_pdf" class="btn btn-primary" target="_blank">CETAK PDF</a>
-		<table class='table table-bordered'>
-			<thead>
-				<tr>
-					<th>No</th>
-					<th>NIK</th>
-					<th>NIM</th>
-					<th>Name</th>
-					<th>Address</th>
-					<th>Photo</th>
-				</tr>
-			</thead>
-			<tbody>
-				@php $i=1 @endphp
-				@foreach($students as $p)
-				<tr>
-					<td>{{ $i++ }}</td>
-					<td>{{$p->nik}}</td>
-					<td>{{$p->nim}}</td>
-					<td>{{$p->name}}</td>
-					<td>{{$p->address}}</td>
-					<td>{{$p->photo}}</td>
-				</tr>
-				@endforeach
-			</tbody>
-		</table>
- 
-	</div>
- 
+    @foreach($printkp as $print) <br><br>
+    <center><strong>PRINT KP</strong></center> <br> <br>
+                <div class="container">
+                        <table class="table table-responsive-sm table-bordered table-striped table-sm">
+                            <tbody>
+                            <tr>
+                                <th>ID KP</th>
+                                <td>{{ $print->id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nama Mahasiswa</th>
+                                <td>{{ $print->name }} <br>
+                                    <small>{{ $print->nim }}</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Judul KP</th>
+                                <td>{{ $print->title }}<</td>
+                            </tr>
+                            <tr>
+                                <th>Dosen Pembimbing</th>
+                                <td>{{ $print->dospem }}<br>
+                                <small>{{$print->nip}}</small></td>
+                            </tr>
+                            <tr>
+                                <th>Mulai/Berakhir pada</th>
+                                <td>{{ $print->start_at }} s/d {{ $print->end_at }}</td>
+                            </tr>
+                            <tr>
+                                <th>Waktu Seminar</th>
+                                <td>{{ $print->seminar_date }}
+                                    <br><small>{{ $print->seminar_time }}</small>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Ruangan Seminar</th>
+                                <td>{{ $print->room }}</td>
+                            </tr>
+                            <tr>
+                                <th>Tempat KP</th>
+                                
+                                <td>{{ $print->building }}</td>
+                                
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    
+                        <table class="table table-responsive-sm table-bordered table-striped " style="width: 90px;text-align: center;">
+                            <tr>
+                                <th>Grade</th>
+                            </tr>
+                            <tr>
+                                <td>{{ $print->grade }}</td>
+                            </tr>
+                        </table>
+                    
+                </div>
+    @endforeach
 </body>
+
 </html>
