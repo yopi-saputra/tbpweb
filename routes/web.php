@@ -107,10 +107,10 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Frontend', 'as' => 'fronte
 //    Route::resource('internship-cancellation', 'InternshipCancellationController')->only(['edit', 'update']);
 
         /** K05 - DSN */
-//    Route::resource('interns', 'InternController')->only(['index', 'show']);
-//    Route::get('intern-grades/{id}/print', 'InternGradeController@print')->name('intern-grades.print');
-//    Route::resource('intern-grades', 'InternGradeController')->only(['edit', 'update']);
-//    Route::resource('interns.logbooks', 'InternLogbookController')->except(['destroy', 'create', 'store']);
+      Route::resource('interns', 'InternController')->only(['index', 'show']);
+      Route::get('intern-grades/{id}/print', 'InternGradeController@print')->name('intern-grades.print');
+      Route::resource('intern-grades', 'InternGradeController')->only(['edit', 'update']);
+      Route::resource('interns.logbooks', 'InternLogbookController')->except(['destroy', 'create', 'store']);
 
     });
 
