@@ -28,6 +28,7 @@
                     <th>Nama Mahasiswa</th>
                     <th>Judul KP</th>
                     <th>Waktu Seminar</th>
+                    <th>Status</th>
                     <th>Grade</th>
                     <th>Aksi</th>
                 </tr>
@@ -46,7 +47,9 @@
                         </td>
                         <td>{{ $internship->title }}</td>
                         <td>{{ $internship->seminar_date }} <br> {{ $internship->seminar_time }}</td>
-
+                        <td>
+                            <h4>{!! $internship->status_text !!}</h4>
+                        </td>
                         <td>
                             @if(isset($internship->grade))
                                 {{ $internship->grade }}
