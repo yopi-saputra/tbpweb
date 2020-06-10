@@ -110,5 +110,6 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Frontend', 'as' => 'fronte
         Route::get('intern-grades/{id}/print', 'InternGradeController@print')->name('intern-grades.print');
         Route::resource('intern-grades', 'InternGradeController')->only(['edit', 'update']);
         Route::resource('interns.logbooks', 'InternLogbookController')->except(['destroy', 'create', 'store']);
+
     });
 });
