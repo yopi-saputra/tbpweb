@@ -20,6 +20,11 @@
 
 <div class="row">
         <div class="col-md-12">
+        @if (Session::has('message'))
+                <div class="alert alert-success">
+                    {!! Session::get('message') !!}
+                </div>
+        @endif
             <div class="card">
                 <form action="/intern-grades/{{ $edit->id }}" method="post">
                 @method('patch')
