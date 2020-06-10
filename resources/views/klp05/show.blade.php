@@ -95,11 +95,7 @@
         </div>
 
         <div class="col-md-3">
-            @if (Session::has('message'))
-                <div class="alert alert-success">
-                    {!! Session::get('message') !!}
-                </div>
-            @endif
+            
             <div class="card">
                 {{-- CARD HEADER--}}
                 <div class="card-header">
