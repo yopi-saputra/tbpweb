@@ -21,13 +21,13 @@ class InternLogbookController extends Controller
         //$user_id = auth()->user()->id;
         //dump($user_id)
         $internshiplogbooks = Internship::select('internships.title','internship_logbooks.*','students.nim','students.name')
-        ->join ('internship_logbooks', 'internship_logbooks.internship_id','=','internship_id')
+        ->join ('internship_logbooks','internship_logbooks.internship_id','=','internships.id')
         ->join ('students','internships.student_id','=','students.id')
-        ->where('nim',$nim)
+        ->where ('nim', $nim)
         ->get();
         dump($internshiplogbooks);
-
-        return view('klp05.logbooks.index', compact('internshiplogbooks'),['nim'=>$nim]);
+        
+        return view('klp05.logbooks.index', compact('internshiplogbooks'),['nim' => $nim]);
 
     }
 
