@@ -122,16 +122,16 @@ class InternGradeController extends Controller
             Session::flash('message', 'Nilai tidak terdefinisi');
         }
 
-        $detailkp = DB::table('internships')
-            ->select('internships.*', 'internship_agencies.name', 'students.nim')
+        $editnilai = DB::table('internships')
+            ->select('internships.*', 'students.nim', 'students.name')
             ->join('students', 'internships.student_id', '=', 'students.id')
             ->join('Lecturers', 'internships.advisor_id', '=', 'lecturers.id')
             ->join('internship_proposals', 'internships.internship_proposal_id', '=', 'internship_proposals.id')
             ->join('internship_agencies', 'internship_proposals.agency_id', '=', 'internship_agencies.id')
             ->where('internships.id', $id)
             ->get();
-
-        return view('klp05.show', compact('detailkp'));
+        //dump($editnilai);
+        return view('klp05.editnilai', compact('editnilai'));
     }
 
     /**
