@@ -35,6 +35,10 @@
 
             </div>
         </div>
+        
+        <div class="col-md-3">
+                <a class="btn btn-primary" href="/intern-grades/{{$edit->id}}/print">Print</a> 
+        </div>
 </div>
 @endforeach
 @endsection
