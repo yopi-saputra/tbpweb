@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Frontend\Intern;
 
 use App\Http\Controllers\Controller;
+use App\Models\Internship;
+use App\Models\Student;
+use App\Models\Lecturer;
 use Illuminate\Http\Request;
 
 class InternController extends Controller
@@ -14,7 +17,22 @@ class InternController extends Controller
      */
     public function index()
     {
-        //
+        $user_id = auth()->user()->id;      
+        //dump($user_id)  ;
+        $internships = Internship::select('internships.*', 'students.name', 'students.nim')
+        ->join ('Students', 'internships.student_id','=','students.id')
+        ->join ('Lecturers', 'internships.advisor_id','=','lecturers.id')
+        ->where ('advisor_id', $user_id)
+        ->get();
+//dump($internships);
+
+        // ->join ('students', 'internships.student_id','=', 'students.id')
+        // ->join ('lecturers', 'internships.advisor_id','=', 'lecturers.id')
+        // ->select('students.*','internships.*','lecturers.*')
+        // ->where ('advisor_id', $user_id)
+        // ->get();
+
+        return view('klp05.index', compact('internships'));
     }
 
     /**
