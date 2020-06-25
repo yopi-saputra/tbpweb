@@ -12,7 +12,7 @@
 
 
 @section('toolbar')
-
+{!! cui()->btn(route('frontend.interns.logbooks.index', [$detailkape->nim]),'cil-address-book', ' Lihat Logbook') !!}
 @endsection
 
 @section('content')
@@ -25,12 +25,6 @@
                     <strong><i class="cil-user"></i>Detail KP </strong><br><small></small>
             </div>
 
-            <div class="card-body">
-                <div class="form-group">
-                    <div><strong>ID Internship</strong></div>
-                    <div>{{ $detailkape->id }}</div>
-            </div>
-            </div>
 
             <div class="card-body">
                 <div class="form-group">
@@ -106,20 +100,17 @@
                     <div class="text-center">
                         @if(isset($detailkape->grade))
                             <div>{{ $detailkape->grade }}</div><br>
-                            <a class="btn btn-success" href="/intern-grades/{{ $detailkape->id }}/edit">Edit Nilai</a>
+                            {!! cui()->btn(route('frontend.intern-grades.edit', [$detailkape->id]),'cil-pen', ' Edit Nilai') !!}
                         @else
                             <div><strong style="color:red">Belum dinilai</strong></div> <br>
-                            <!-- <div>{!! cui()->btn_edit(route('frontend.intern-grades.edit', [$detailkape->id]),' Input Nilai') !!}</div> -->
-                            <a class="btn btn-success" href="/intern-grades/{{ $detailkape->id }}/edit">Input Nilai</a>
+                            {!! cui()->btn(route('frontend.intern-grades.edit', [$detailkape->id]),'cil-pen', ' Input Nilai') !!}
                         @endif
                     </div>
                 </div>
             </div>
+            
             <div class="card">
-                <a class="btn btn-primary" href="/interns/{{ $nim=$detailkape->nim }}/logbooks">Lihat Logbooks</a>            
-            </div>
-            <div class="card">
-                <a class="btn btn-warning" href="/interns">Kembali</a> 
+                {!! cui()->btn(route('frontend.interns.index'),'cid-backspace', ' Kembali') !!}
             </div>
             <!-- <div class="card">
                 <a class="btn btn-warning" href="/intern-grades/{{$detailkape->id}}/print">Print</a> 
