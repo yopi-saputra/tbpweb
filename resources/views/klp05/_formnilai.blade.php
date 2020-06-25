@@ -25,4 +25,4 @@
                     
                         
                             <input type="submit" name="submit" class="btn btn-success">
-                            <a class="btn btn-warning" href="/interns/{{ $edit->nim }}">Kembali</a>
+                            {!! cui()->btn(route('frontend.interns.show',[$edit->nim]),'cid-backspace', ' Kembali') !!}
