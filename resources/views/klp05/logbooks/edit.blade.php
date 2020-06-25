@@ -28,9 +28,10 @@
         @endif
             <div class="card">
             @foreach($editlogbooks as $edit)
-                <form action="/interns/{{$nim=$edit->nim}}/logbooks/{{$id=$edit->id}}" method="post">
+                <!-- <form action="/interns/{{$nim=$edit->nim}}/logbooks/{{$id=$edit->id}}" method="post">
                 @method('patch')
-                @csrf
+                @csrf -->
+                {{ html()->form('PUT', route('frontend.interns.logbooks.update', [$edit->nim, $edit->id]))->open() }}
                 <div class="card-header">
                     <strong> <i class="cil-pencil"></i> Form Tanggapan Logbook KP</strong>
                 </div>
@@ -38,7 +39,8 @@
                     @include('klp05.logbooks._formedit')
 
                     </div>
-                </form>
+                <!-- </form> -->
+                {{ html()->form()->close() }}
 
             </div>
         </div>
