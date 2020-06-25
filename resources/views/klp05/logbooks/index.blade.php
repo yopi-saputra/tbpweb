@@ -55,7 +55,8 @@
                                 <center>
                                     {{ $internshiplogbook->notes }} <br><br>
                                     <div class="col-md-3">
-                                    <a class="btn btn-block btn-primary" href="/interns/{{$internshiplogbook->nim}}/logbooks/{{$internshiplogbook->id}}/edit"><span><i class="cil-pencil"></i></span></a>
+                                    <!-- <a class="btn btn-block btn-primary" href="/interns/{{$internshiplogbook->nim}}/logbooks/{{$internshiplogbook->id}}/edit"><span><i class="cil-pencil"></i></span></a> -->
+                                    {!! cui()->btn_edit(route('frontend.interns.logbooks.edit', [$internshiplogbook->nim , $internshiplogbook->id])) !!}
                                     </div>
                                 </center>
                                 @else
@@ -63,14 +64,15 @@
                                     <strong style="color:red">Belum ditanggapi</strong>
                                     <br><br>
                                     <div class="col-md-3">
-                                    <a class="btn btn-block btn-success" href="/interns/{{$internshiplogbook->nim}}/logbooks/{{$internshiplogbook->id}}/edit"><i class="cil-pencil"></i></span></a>
+                                        <!-- <a class="btn btn-block btn-success" href="/interns/{{$internshiplogbook->nim}}/logbooks/{{$internshiplogbook->id}}/edit"><i class="cil-pencil"></i></span></a> -->
+                                    {!! cui()->btn_edit(route('frontend.interns.logbooks.edit', [$internshiplogbook->nim , $internshiplogbook->id])) !!}
                                     </div>
                                     </center>
                                 @endif
                             
                         </td>
-                        <td><a class="btn btn-block btn-info" href="/interns/{{$nim=$internshiplogbook->nim}}/logbooks/{{$id=$internshiplogbook->id}}">Show</a></td>
-
+                        <!-- <td><a class="btn btn-block btn-info" href="/interns/{{$nim=$internshiplogbook->nim}}/logbooks/{{$id=$internshiplogbook->id}}">Show</a></td> -->
+                        <td>{!! cui()->btn_view(route('frontend.interns.logbooks.show', [$internshiplogbook->nim , $internshiplogbook->id])) !!}</td>
                     </tr>
                     @empty
                     <tr>
