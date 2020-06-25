@@ -25,7 +25,7 @@ class InternLogbookController extends Controller
         ->join ('students','internships.student_id','=','students.id')
         ->where ('nim', $nim)
         ->get();
-        dump($internshiplogbooks);
+       
         
         return view('klp05.logbooks.index', compact('internshiplogbooks'),['nim' => $nim]);
 
@@ -60,8 +60,7 @@ class InternLogbookController extends Controller
      */
     public function show($nim,$id)
     {
-        dump($nim);
-        dump($id);
+        
 
         $internshiplogbooks = Internship::select('internships.title','internship_logbooks.*','students.nim','students.name')
         ->join ('internship_logbooks','internship_logbooks.internship_id','=','internships.id')
@@ -69,7 +68,7 @@ class InternLogbookController extends Controller
         ->where ('nim', $nim)
         ->where ('internship_logbooks.id',$id)
         ->get();
-        dump($internshiplogbooks);
+  
 
 
         return view('klp05.logbooks.show',
