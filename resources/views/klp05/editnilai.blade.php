@@ -26,9 +26,10 @@
                 </div>
         @endif
             <div class="card">
-                <form action="/intern-grades/{{ $edit->id }}" method="post">
-                @method('patch')
-                @csrf
+                <!-- <form action="/intern-grades/{{ $edit->id }}" method="post"> -->
+                {{ html()->form('PUT', route('frontend.intern-grades.update', [$edit->id]))->open() }}
+                <!-- @method('patch')
+                @csrf -->
                 <div class="card-header">
                     <strong> <i class="cil-pencil"></i> Form Penilaian KP</strong>
                 </div>
@@ -36,13 +37,15 @@
                         @include('klp05._formnilai')
 
                     </div>
-                </form>
+                <!-- </form> -->
+                {{ html()->form()->close() }}
 
             </div>
         </div>
         
         <div class="col-md-3">
-                <a class="btn btn-primary" href="/intern-grades/{{$edit->id}}/print">Print</a> 
+                <!-- <a class="btn btn-primary" href="/intern-grades/{{$edit->id}}/print">Print</a>  -->
+                {!! cui()->btn(route('frontend.intern-grades.print', [$edit->id]),'cil-pen', ' Print') !!}
         </div>
 </div>
 @endforeach
