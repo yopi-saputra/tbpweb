@@ -38,6 +38,8 @@
                         </div>
 
                             <input type="submit" name="submit" class="btn btn-success" value="Masukan Tanggapan">
-                            <a class="btn btn-warning" href="/interns/{{$edit->nim}}/logbooks ">Kembali</a> 
+                            <!-- <a class="btn btn-warning" href="/interns/{{$edit->nim}}/logbooks ">Kembali</a>  -->
+                            {!! cui()->btn(route('frontend.interns.logbooks.index', [$edit->nim]),'cid-backspace', ' Kembali') !!}
+
 
                     </div>
