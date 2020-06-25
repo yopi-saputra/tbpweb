@@ -25,13 +25,6 @@
 
                 <div class="card-body">
                     <div class="form-group">
-                        <div><strong>ID Logbook</strong></div>
-                        <div>{{ $internshiplogbook->id }}</div>
-                    </div>
-                </div>
-
-                <div class="card-body">
-                    <div class="form-group">
                         <div><strong>Judul KP</strong></div>
                         <div>{{ $internshiplogbook->title }}</div>
                     </div>
@@ -88,7 +81,8 @@
                 </div>
             </div>
             <div class="card">
-                <a class="btn btn-warning" href="/interns/{{$internshiplogbook->nim}}/logbooks">Kembali</a> 
+                <!-- <a class="btn btn-warning" href="/interns/{{$internshiplogbook->nim}}/logbooks">Kembali</a>  -->
+                {!! cui()->btn(route('frontend.interns.logbooks.index', [$internshiplogbook->nim]),'cid-backspace', ' Kembali') !!}
             </div>
             
         </div>
