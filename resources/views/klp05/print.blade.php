@@ -15,10 +15,6 @@
                         <table class="table table-responsive-sm table-bordered table-striped table-sm">
                             <tbody>
                             <tr>
-                                <th>ID KP</th>
-                                <td>{{ $print->id }}</td>
-                            </tr>
-                            <tr>
                                 <th>Nama Mahasiswa</th>
                                 <td>{{ $print->name }} <br>
                                     <small>{{ $print->nim }}</small>
