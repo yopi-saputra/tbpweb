@@ -29,7 +29,7 @@ class InternController extends Controller
         ->join ('Lecturers', 'internships.advisor_id','=','lecturers.id')
         ->where ('advisor_id', $user_id)
         ->get();
-//dump($internships);
+        //dump($internships);
 
         // ->join ('students', 'internships.student_id','=', 'students.id')
         // ->join ('lecturers', 'internships.advisor_id','=', 'lecturers.id')
@@ -79,11 +79,6 @@ class InternController extends Controller
         ->where ('students.nim', $id)
         ->get();
         
-        
-        
-        
-        
-        dump($detailkp);
         return view('klp05.show', compact('detailkp'));
     }
 
