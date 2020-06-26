@@ -32,6 +32,13 @@
 
                 <div class="card-body">
                     <div class="form-group">
+                        <div><strong>Tanggal</strong></div>
+                        <div>{{ $internshiplogbook->date }}</div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="form-group">
                         <div><strong>Activity</strong></div>
                         <div>{{ $internshiplogbook->activity }}</div>
                     </div>
@@ -57,6 +64,44 @@
                         <div>{{ $internshiplogbook->osver_in }}</div>
                     </div>
                 </div>
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <div><strong>Waktu Checkin</strong></div>
+                        <div>{{ $internshiplogbook->check_in_time }}</div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <div><strong>Model Out</strong></div>
+                        <div>{{ $internshiplogbook->model_out }}</div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <div><strong>Manufacturer Out</strong></div>
+                        <div>{{ $internshiplogbook->manufacturer_out }}</div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <div><strong>Osver out</strong></div>
+                        <div>{{ $internshiplogbook->osver_out }}</div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="form-group">
+                        <div><strong>Waktu Checkout</strong></div>
+                        <div>{{ $internshiplogbook->check_out_time }}</div>
+                    </div>
+                </div>
+
+
+                
                 
             </div> 
         </div>
