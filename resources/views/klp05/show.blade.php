@@ -26,6 +26,7 @@
             </div>
 
 
+
             <div class="card-body">
                 <div class="form-group">
                     <div><strong>Nama Mahasiswa</strong></div>
@@ -58,7 +59,7 @@
             <div class="card-body">
                 <div class="form-group">
                     <div><strong>Nama Pembimbing</strong></div>
-                    <div>{{ $detailkape->dospem }}</div>
+                    <div>{{ $detailkape->field_advisor_name }}</div><small>{{ $detailkape->field_advisor_no}}</small> / <small>{{ $detailkape->field_advisor_phone}}</small> / <small>{{ $detailkape->field_advisor_email}}</small>
             </div>
             </div>
 
@@ -75,6 +76,56 @@
                     <div>{{ $detailkape->room }}</div>
             </div>
             </div>
+
+            <div class="card-body">
+                <div class="form-group">
+                    <div><strong>File Report Receipt</strong></div>
+                    <a href={{ asset('assets/file/file_report_receipt/'. $detailkape->file_report_receipt) }}>{{ $detailkape->file_report_receipt }}</a>
+            </div>
+            </div>
+
+            <div class="card-body">
+                <div class="form-group">
+                    <div><strong>File Field Grade</strong></div>
+                    <a href={{ asset('assets/file/file_field_grade/'. $detailkape->file_field_grade) }}>{{ $detailkape->file_field_grade }}</a>
+            </div>
+            </div>
+
+            <div class="card-body">
+                <div class="form-group">
+                    <div><strong>File Logbook</strong></div>
+                    <a href={{ asset('assets/file/file_logbook/'. $detailkape->file_logbook) }}>{{ $detailkape->file_logbook }}</a>
+            </div>
+            </div>
+
+            <div class="card-body">
+                <div class="form-group">
+                    <div><strong>File Seminar Attendance</strong></div>
+                    <a href={{ asset('assets/file/file_seminar_attendance/'. $detailkape->file_seminar_attendance) }}>{{ $detailkape->file_seminar_attendance }}</a>
+            </div>
+            </div>
+
+            <div class="card-body">
+                <div class="form-group">
+                    <div><strong>File Seminar Off Report</strong></div>
+                    <a href={{ asset('assets/file/file_seminar_off_report/'. $detailkape->file_seminar_off_report) }}>{{ $detailkape->file_seminar_off_report }}</a>
+            </div>
+            </div>
+
+            <div class="card-body">
+                <div class="form-group">
+                    <div><strong>File Report</strong></div>
+                    <a href={{ asset('assets/file/file_report/'. $detailkape->file_report) }}>{{ $detailkape->file_report }}</a>
+            </div>
+            </div>
+
+            <div class="card-body">
+                <div class="form-group">
+                    <div><strong>File Certificate</strong></div>
+                    <a href={{ asset('assets/file/file_certificate/'. $detailkape->file_certificate) }}>{{ $detailkape->file_certificate }}</a>
+            </div>
+            </div>
+
 
             <div class="card-body">
                 <div class="form-group">
